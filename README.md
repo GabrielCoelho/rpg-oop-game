@@ -3,7 +3,7 @@
 ## TOC
 
 - [About the Project](#about-the-project)
-- [Story of the Game][#story-of-the-game]
+- [Story of the Game](#story-of-the-game)
 
 ## About the Project
 
