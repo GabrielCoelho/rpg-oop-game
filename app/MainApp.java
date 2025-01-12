@@ -1,5 +1,7 @@
 public class MainApp {
   public static void main(String[] args) {
+    MainView windowView = new MainView();
+    windowView.initializeApp();
     Character player = new Character();
     CharacterController playerController = new CharacterController(player);
     CharacterView playerView = new CharacterView(player);
