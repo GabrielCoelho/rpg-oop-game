@@ -3,6 +3,7 @@
 ## TOC
 
 - [About the Project](#about-the-project)
+- - [Compiling](#compiling)
 - [Story of the Game](#story-of-the-game)
 
 ## About the Project
@@ -10,6 +11,18 @@
 Build with Java as a introductory project for my OOP classes at college. The purpose of this project is to collect enough knowledge as a real project, aiming landing a job at the area and have a great grade at the class.
 
 Using MVC as a struct pattern to code.
+
+### Compiling
+
+```
+javac -d bin/ app/MainApp.java controller/CharacterController.java controller/MainController.java view/CharacterView.java view/MainView.java model/Character.java
+```
+
+then execute using:
+
+```
+java -cp bin MainApp
+```
 
 ## Story of the Game
 
