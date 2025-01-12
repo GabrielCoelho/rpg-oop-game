@@ -15,7 +15,7 @@ Using MVC as a struct pattern to code.
 ### Compiling
 
 ```
-javac -d bin/ app/MainApp.java controller/CharacterController.java controller/MainController.java view/CharacterView.java view/MainView.java model/Character.java
+javac -d bin/ app/MainApp.java controller/CharacterController.java controller/MainController.java view/CharacterView.java view/MainView.java model/Character.java view/ScenesView.java
 ```
 
 then execute using:
