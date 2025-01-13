@@ -5,22 +5,33 @@ import javax.swing.*;
 
 public class MainView {
   JFrame windowFrame = new JFrame();
+  JPanel panelFrame = new JPanel();
   JButton startGameButton = new JButton("Start Game");
   boolean gameStart = false;
   JButton nextButton = new JButton("next ->");
   JButton prevButton = new JButton("<- previous");
 
   public void prepareGUI() {
+    // Configuring JFrame
     windowFrame.setSize(400, 500);
     windowFrame.setLayout(null);
-    windowFrame.setVisible(true);
     windowFrame.setTitle("Lands of Eternal Night");
     windowFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    // Configuring JPanel
+    panelFrame.setLayout(null);
+    panelFrame.setBounds(0, 0, 400, 500);
+    windowFrame.add(panelFrame);
+
+    // making it visible
+    windowFrame.setVisible(true);
   }
 
   public void addStartGameButton() {
     startGameButton.setBounds(130, 100, 150, 40);
-    windowFrame.add(startGameButton);
+    panelFrame.revalidate();
+    panelFrame.repaint();
+    panelFrame.add(startGameButton);
     startGameButton.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent event) {
@@ -40,13 +51,13 @@ public class MainView {
   }
 
   public void removeStartGameButton() {
-    windowFrame.remove(startGameButton);
-    windowFrame.repaint();
+    panelFrame.remove(startGameButton);
+    panelFrame.repaint();
   }
 
   public void addNextButton() {
     nextButton.setBounds(235, 420, 150, 40);
-    windowFrame.add(nextButton);
+    panelFrame.add(nextButton);
     nextButton.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent event) {
@@ -58,7 +69,7 @@ public class MainView {
 
   public void addPreviousButton() {
     prevButton.setBounds(5, 420, 150, 40);
-    windowFrame.add(prevButton);
+    panelFrame.add(prevButton);
     prevButton.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent event) {
