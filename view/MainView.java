@@ -7,11 +7,10 @@ public class MainView {
   JFrame windowFrame = new JFrame();
   JPanel panelFrame = new JPanel();
   JButton startGameButton = new JButton("Start Game");
-  boolean gameStart = false;
   JButton nextButton = new JButton("next ->");
   JButton prevButton = new JButton("<- previous");
 
-  public void prepareGUI() {
+  public JFrame prepareGUI() {
     // Configuring JFrame
     windowFrame.setSize(400, 500);
     windowFrame.setLayout(null);
@@ -25,9 +24,10 @@ public class MainView {
 
     // making it visible
     windowFrame.setVisible(true);
+    return windowFrame;
   }
 
-  public void addStartGameButton() {
+  public void addStartGameButton(ActionListener gameStartListener) {
     // Configuring start Button
     startGameButton.setBounds(130, 100, 150, 40);
     panelFrame.add(startGameButton);
@@ -38,56 +38,24 @@ public class MainView {
     startGameButton.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent event) {
-        int decision = JOptionPane.showConfirmDialog(windowFrame, "Do you want to start the game?", "Confirm new Game",
+        int decision = JOptionPane.showConfirmDialog(windowFrame,
+            "Do you want to start the game?", "Confirm new Game",
             JOptionPane.YES_NO_OPTION);
-
         if (decision == JOptionPane.YES_OPTION) {
-          System.out.println("Yes, starting the game...");
-          gameStart = true;
-          // calls for the update on the panel and creates a new scene
-          removeStartGameButton();
-          createScene("Teste");
+          gameStartListener.actionPerformed(event);
         } else {
-          System.out.println("Nope, doing nothing");
+          System.out.println("Exiting the game...");
+          System.exit(0);
         }
       }
     });
+
   }
 
   public void removeStartGameButton() {
     panelFrame.remove(startGameButton);
     panelFrame.revalidate();
     panelFrame.repaint();
-  }
-
-  public void addNextButton() {
-    nextButton.setBounds(235, 420, 150, 40);
-    panelFrame.add(nextButton);
-    nextButton.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent event) {
-        System.out.println("Hello from next button");
-
-      }
-    });
-  }
-
-  public void addPreviousButton() {
-    prevButton.setBounds(5, 420, 150, 40);
-    panelFrame.add(prevButton);
-    prevButton.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent event) {
-
-        System.out.println("Hello from previous button");
-      }
-    });
-  }
-
-  public void createScene(String message) {
-    addNextButton();
-    addPreviousButton();
-    System.out.println("Tudo certo até aqui");
   }
 
 }
