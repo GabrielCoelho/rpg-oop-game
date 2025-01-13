@@ -28,10 +28,13 @@ public class MainView {
   }
 
   public void addStartGameButton() {
+    // Configuring start Button
     startGameButton.setBounds(130, 100, 150, 40);
+    panelFrame.add(startGameButton);
     panelFrame.revalidate();
     panelFrame.repaint();
-    panelFrame.add(startGameButton);
+
+    // Start button action
     startGameButton.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent event) {
@@ -41,6 +44,7 @@ public class MainView {
         if (decision == JOptionPane.YES_OPTION) {
           System.out.println("Yes, starting the game...");
           gameStart = true;
+          // calls for the update on the panel and creates a new scene
           removeStartGameButton();
           createScene("Teste");
         } else {
@@ -52,6 +56,7 @@ public class MainView {
 
   public void removeStartGameButton() {
     panelFrame.remove(startGameButton);
+    panelFrame.revalidate();
     panelFrame.repaint();
   }
 
